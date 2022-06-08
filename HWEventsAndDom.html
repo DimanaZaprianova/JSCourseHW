@@ -1,0 +1,36 @@
+
+<html>
+<body>
+<h1>HW Events and DOM</h1>
+<div> 
+  <label for="item">Item name:</label>
+  <input type="text" id="iname" name="iname" value="Task" size="50px"><br><br>
+  <button id="btn" position="relative">Add</button>
+</div>
+<ul id="myList" list-style-type="none">
+  <li>Task1</li>
+  </ul>
+  <!-- <button id="btn">Remove</button> -->
+<script>
+
+// Insert before existing child:
+document.getElementById("btn").onclick = function () {
+
+const newLi = document.createElement("li");
+
+var textinput = document.getElementById("iname").value;
+var liValue = document.createTextNode(textinput);
+
+newLi.appendChild(liValue);
+
+const list = document.getElementById("myList");
+
+list.insertBefore(newLi, list.children[0]);
+
+document.getElementById("iname").value = "";
+document.getElementById("iname").focus();
+};
+
+</script>
+</body>
+</html>
